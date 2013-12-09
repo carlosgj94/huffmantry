@@ -4,14 +4,16 @@ function busqueda(texto){
 	for(var i=0; i<texto.length; i++){
 		var pertenece = letra_incluida(texto[i], array);
 		if (pertenece === false){
-            array[array.length]=new Array(2);
-			array[array.length][0]= texto[i]; //Error
-			array[array.length][1]= 1;
+          var long = array.length;
+            array[long]=new Array(2);
+			array[long][0]= texto[i];
+			array[long][1]= 1;
 		}
 		else{
-			for (var j=0; j<texto.length; j++){
+			for (var j=0; j<array.length; j++){
 				if (texto[i]== array[j][0])
 					array[j][1]+=1;
+                    j=array.length;
 			}
 		}
 	}
@@ -27,6 +29,5 @@ function letra_incluida (letra, array) {
 	return incluida;
 }
 
-var texto = "ABC";
+var texto = "ABCABCaB";
 console.log(busqueda(texto)); 
-​
