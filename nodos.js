@@ -11,3 +11,8 @@ function crear_nodos(lista_frecs){
     nodos.push(new Nodo(lista_frecs[i][0], liste_frecs[i][1])); //Dejamos vacio izquierda y derecha
   return nodos;
 }
+
+
+function crear_rama(nodIzq, nodDer){//Esta funcion sera llamada por crear_arbol(){}
+	return (new Nodo(nodIzq.char+nodDer.char, nodIzq.weight+nodDer.weight, nodIzq, nodDer));
+}
