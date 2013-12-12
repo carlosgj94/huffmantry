@@ -13,6 +13,19 @@ function crear_nodos(lista_frecs){
 }
 
 
-function crear_rama(nodIzq, nodDer){//Esta funcion sera llamada por crear_arbol(){}
-	return (new Nodo(nodIzq.char+nodDer.char, nodIzq.weight+nodDer.weight, nodIzq, nodDer));
+function crear_hoja (nodIzq, nodDer) {//Esta funcion sera llamada por crear_arbol(){}
+        return (new Nodo(nodDer.carac + nodIzq.carac, nodDer.peso + nodIzq.peso, nodDer, nodIzq) );
+}
+
+function crear_arbol (nodos) {
+	if (nodos.length == 1)
+		return nodos;
+	else{
+		nodos.push(crear_hoja(nodos.pop(), nodos.pop() ) );
+		nodos.sort(function ( a, b){
+			return b.peso-a.peso;
+		});
+		crear_arbol(nodos);
+	}
+	return nodos;
 }

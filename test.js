@@ -46,8 +46,29 @@ function crear_nodos(lista_frecs){
   return nodos;
 }
 
-var parrafo = "ABCACAabcab";
+function crear_hoja (nodIzq, nodDer) {//Esta funcion sera llamada por crear_arbol(){}
+        return (new Nodo(nodDer.carac + nodIzq.carac, nodDer.peso + nodIzq.peso, nodDer, nodIzq) );
+}
+
+function crear_arbol (nodos) {
+	if (nodos.length == 1)
+		return nodos;
+	else{
+		nodos.push(crear_hoja(nodos.pop(), nodos.pop() ) );
+		nodos.sort(function ( a, b){
+			return b.peso-a.peso;
+		});
+		crear_arbol(nodos);
+	}
+	return nodos;
+}
+
+
+var parrafo = "AAAIIRRQUEOCS";
 var buscado = busqueda(parrafo);
-console.log(buscado);
+//console.log(buscado);
 var nodos_creados = crear_nodos(buscado);
-console.log(nodos_creados);
+//console.log(nodos_creados);
+var arbol = crear_arbol(nodos_creados);
+console.log("El arbol es: ");
+console.log(arbol[0].der);
