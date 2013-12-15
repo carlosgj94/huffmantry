@@ -88,7 +88,7 @@ function buscar_letra(arbol, letra){
 	return binario;
 }
 
-var parrafo = "Quiero matarme a pajas";
+var parrafo = "Ata la jaca a la vaca Paca";
 console.log(parrafo);
 var buscado = busqueda(parrafo);
 //console.log(buscado);
