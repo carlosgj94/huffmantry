@@ -63,12 +63,39 @@ function crear_arbol (nodos) {
 	return nodos;
 }
 
+function codificar(arbol, texto){
+	var binario = '';
+	for (var i in texto){
+		binario = binario.concat(buscar_letra(arbol, texto[i]));
+	}
+	return binario;
+}
 
-var parrafo = "AAAIIRRQUEOCS";
+function buscar_letra(arbol, letra){
+	arbol = arbol[0];
+	var binario='';
+	while(arbol.izq && arbol.der){
+		if((arbol.der.carac).indexOf(letra)!=-1){
+	    	binario= binario+"1";
+	    	arbol = arbol.der;
+	    }
+
+		else if((arbol.izq.carac).indexOf(letra)!=-1){
+    		binario=binario+"0";
+    		arbol = arbol.izq;
+    	}
+	}
+	return binario;
+}
+
+var parrafo = "Quiero matarme a pajas";
+console.log(parrafo);
 var buscado = busqueda(parrafo);
 //console.log(buscado);
 var nodos_creados = crear_nodos(buscado);
 //console.log(nodos_creados);
 var arbol = crear_arbol(nodos_creados);
-console.log("El arbol es: ");
-console.log(arbol[0].der);
+console.log("La codificacion es: ");
+//console.log(arbol[0].der.carac);
+var codificado = codificar(arbol, parrafo);
+console.log(codificado);
