@@ -88,14 +88,4 @@ function buscar_letra(arbol, letra){
 	return binario;
 }
 
-//var parrafo = "Quiero matarme a pajas";
-//console.log(parrafo);
-//var buscado = busqueda(parrafo);
-//console.log(buscado);
-//var nodos_creados = crear_nodos(buscado);
-//console.log(nodos_creados);
-//var arbol = crear_arbol(nodos_creados);
-//console.log("La codificacion es: ");
-//console.log(arbol[0].der.carac);
-//var codificado = codificar(arbol, parrafo);
-//alert(codificado);
+
