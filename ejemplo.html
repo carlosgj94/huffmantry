@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Project Huffman!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <link href="css/demo.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <script type="text/javascript" src="huffman/huffman.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+        <script type="text/javascript">
+        function compresionTexto(){
+          var parrafo = $("#texto").val();
+          var buscado = busqueda(parrafo);
+          var nodos_creados = crear_nodos(buscado);
+          var arbol = crear_arbol(nodos_creados);
+          var codificado = codificar(arbol, parrafo);
+          alert(codificado);
+        }
+      
+    </script>
+  </head>
+  <body>
+    <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="ejemplo.html">Teoría</a></li>
+          <li class="active"><a href="ejemplo.html">Ejemplo</a></li>
+        </ul>
+        <h3 class="text-muted">Project Huffman!</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Ejemplo de Huffman</h1>
+        <p class="lead">Hemos realizado con javascript el código del algoritmo de Huffman, puede probarlo en el campo de texto de abajo. Puede usarlo, si quiere, para comprobar si ha hecho bien un ejercicio, o si quiere, por simple curiosidad.</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Saber más</a></p>
+      </div>
+
+      <div id="compresion">
+        
+      </div>
+
+      <div class="row marketing" style="margin-top: 90px;">
+        <div class="col-lg-8">
+            Introduzca la frase que quiera codificar:<br><textarea  name="texto" class="form-control" id="texto"></textarea><br><br>
+            <button class="btn btn-lg btn-primary" onclick="compresionTexto()">Codificar</button>
+        </div>
+
+        
+      </div><br><br>
+
+      <div class="footer">
+        <p>Trabajo realizado por Carlos González Juárez y Borja Irigoyen Peña para la Escuela Universitaria de Informática de la UPM. Trabajo ganador del concurso Aplicamates del departamento de matemáticas Giemátic</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+  </body>
+</html>
