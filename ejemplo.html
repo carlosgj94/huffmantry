@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Project Huffman!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,61 +20,77 @@
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
     <![endif]-->
-        <script type="text/javascript">
+    <script type="text/javascript">
         function compresionTexto(){
           var parrafo = $("#texto").val();
           var buscado = busqueda(parrafo);
           var nodos_creados = crear_nodos(buscado);
           var arbol = crear_arbol(nodos_creados);
           var codificado = codificar(arbol, parrafo);
-          alert(codificado);
+          document.getElementById('result').innerHTML = '<h5>El resultado es: </h5><br><textarea>'+codificado+'</textarea>';
         }
-      
     </script>
-  </head>
-  <body>
-    <body>
+</head>
 
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="ejemplo.html">Teoría</a></li>
-          <li class="active"><a href="ejemplo.html">Ejemplo</a></li>
-        </ul>
-        <h3 class="text-muted">Project Huffman!</h3>
-      </div>
+<body>
 
-      <div class="jumbotron">
-        <h1>Ejemplo de Huffman</h1>
-        <p class="lead">Hemos realizado con javascript el código del algoritmo de Huffman, puede probarlo en el campo de texto de abajo. Puede usarlo, si quiere, para comprobar si ha hecho bien un ejercicio, o si quiere, por simple curiosidad.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Saber más</a></p>
-      </div>
 
-      <div id="compresion">
-        
-      </div>
+        <div class="container">
+            <div class="header">
+                <ul class="nav nav-pills pull-right">
+                    <li>
+                        <a href="home.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="ejemplo.html">Teoría</a>
+                    </li>
+                    <li class="active">
+                        <a href="ejemplo.html">Ejemplo</a>
+                    </li>
+                </ul>
+                <h3 class="text-muted">Project Huffman!</h3>
+            </div>
 
-      <div class="row marketing" style="margin-top: 90px;">
-        <div class="col-lg-8">
-            Introduzca la frase que quiera codificar:<br><textarea  name="texto" class="form-control" id="texto"></textarea><br><br>
-            <button class="btn btn-lg btn-primary" onclick="compresionTexto()">Codificar</button>
+            <div class="jumbotron">
+                <h1>Ejemplo de Huffman</h1>
+                <p class="lead">Hemos realizado con javascript el código del algoritmo de Huffman, puedes probarlo en el campo de texto de abajo. Puedes usarlo, si quieres, para comprobar si has hecho bien un ejercicio, o si quieres, por simple curiosidad.</p>
+                <p>
+                    <a class="btn btn-lg btn-success" href="#" role="button">Saber más</a>
+                </p>
+            </div>
+
+            <div id="compresion">
+
+            </div>
+
+            <div class="row marketing" style="margin-top: 90px;">
+                <div class="col-lg-8">
+                    Introduzca la frase que quiera codificar:
+                    <br>
+                    <textarea name="texto" class="form-control" id="texto"></textarea>
+                    <br>
+                    <br>
+                    <button class="btn btn-lg btn-primary" onclick="compresionTexto()">Codificar</button>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div id="result"style="color:#c0392b; width:auto; max-width: 105%;">
+                    
+            </div>
+            <br>
+            <br>
+
+
+            <div class="footer">
+                <p>Trabajo realizado por Carlos González Juárez y Borja Irigoyen Peña para la Escuela Universitaria de Informática de la UPM. Trabajo ganador del concurso Aplicamates del departamento de matemáticas Giemátic</p>
+            </div>
+
         </div>
 
-        
-      </div><br><br>
-
-      <div class="footer">
-        <p>Trabajo realizado por Carlos González Juárez y Borja Irigoyen Peña para la Escuela Universitaria de Informática de la UPM. Trabajo ganador del concurso Aplicamates del departamento de matemáticas Giemátic</p>
-      </div>
-
-    </div> <!-- /container -->
-
-    
-
-    <!-- Bootstrap core JavaScript
+        <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-  </body>
-  </body>
+        <!-- Placed at the end of the document so the pages load faster -->
+</body>
+
 </html>
