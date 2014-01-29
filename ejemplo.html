@@ -35,7 +35,10 @@
         function imprimirPesos(pesos){
             var result= '';
             for (var i=0; i<pesos.length; i++){
-                result= result+pesos[i][0]+' - '+pesos[i][1]+'<br>';
+                if (pesos[i][0] == ' ')
+                    result= result+"' ' - "+pesos[i][1]+'<br>';
+                else
+                    result= result+pesos[i][0]+" - "+pesos[i][1]+'<br>';
             }
             return result;
             
