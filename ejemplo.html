@@ -24,6 +24,7 @@
         function compresionTexto(){
           var parrafo = $("#texto").val();
           var buscado = busqueda(parrafo);
+          document.getElementById('weight').innerHTML = '<h5>La frecuencia del texto es: </h5><br>'+buscado;
           var nodos_creados = crear_nodos(buscado);
           var arbol = crear_arbol(nodos_creados);
           var codificado = codificar(arbol, parrafo);
@@ -55,6 +56,9 @@
                 <h1>Ejemplo de Huffman</h1>
                 <p class="lead">Hemos realizado con javascript el código del algoritmo de Huffman, puedes probarlo en el campo de texto de abajo. Puedes usarlo, si quieres, para comprobar si has hecho bien un ejercicio, o si quieres, por simple curiosidad.</p>
                 <p>
+                Advierto que, al ejecutarse en el navegador, la memomria del programa está muy limitada, por lo que no debeis poner textos excesivamente largo. Para textos largos, descargar el javascript de <a href="https://github.com/carlosgj94/huffmantry/blob/master/huffman/huffman.js">huffman.js</a> y ejecutar con node.js.
+                </p>
+                <p>
                     <a class="btn btn-lg btn-success" href="#" role="button">Saber más</a>
                 </p>
             </div>
@@ -75,6 +79,10 @@
             </div>
             <br>
             <br>
+            <div id="weight"style="color:#c0392b; width:auto; max-width: 105%;">
+                    
+            </div>
+            
             <div id="result"style="color:#c0392b; width:auto; max-width: 105%;">
                     
             </div>
@@ -83,7 +91,7 @@
 
 
             <div class="footer">
-                <p>Trabajo realizado por Carlos González Juárez y Borja Irigoyen Peña para la Escuela Universitaria de Informática de la UPM. Trabajo ganador del concurso Aplicamates del departamento de matemáticas Giemátic</p>
+                <p>Trabajo realizado por Carlos González Juárez y Borja Irigoyen Peña para la Escuela Universitaria de Informática de la UPM. El proyecto ha sido presentado a el concurso Aplicamates del departamento de matemáticas Giemátic.</p>
             </div>
 
         </div>
