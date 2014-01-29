@@ -25,7 +25,7 @@
           var parrafo = $("#texto").val();
           var buscado = busqueda(parrafo);
             var peso= imprimirPesos(buscado);
-          document.getElementById('weight').innerHTML = '<h5>La frecuencia del texto es: </h5>'+peso+'<br>';
+          document.getElementById('weight').innerHTML = '<h5>Los pesos del texto son: </h5>'+peso+'<br>';
           var nodos_creados = crear_nodos(buscado);
           var arbol = crear_arbol(nodos_creados);
           var codificado = codificar(arbol, parrafo);
