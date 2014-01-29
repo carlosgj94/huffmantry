@@ -24,11 +24,21 @@
         function compresionTexto(){
           var parrafo = $("#texto").val();
           var buscado = busqueda(parrafo);
-          document.getElementById('weight').innerHTML = '<h5>La frecuencia del texto es: </h5><br>'+buscado;
+            var peso= imprimirPesos(buscado);
+          document.getElementById('weight').innerHTML = '<h5>La frecuencia del texto es: </h5>'+peso+'<br>';
           var nodos_creados = crear_nodos(buscado);
           var arbol = crear_arbol(nodos_creados);
           var codificado = codificar(arbol, parrafo);
           document.getElementById('result').innerHTML = '<h5>El resultado es: </h5><br><textarea class="form-control">'+codificado+'</textarea>';
+        }
+        
+        function imprimirPesos(pesos){
+            var result= '';
+            for (var i=0; i<pesos.length; i++){
+                result= result+pesos[i][0]+' - '+pesos[i][1]+'<br>';
+            }
+            return result;
+            
         }
     </script>
 </head>
@@ -80,7 +90,8 @@
             <br>
             <br>
             <div id="weight"style="color:#c0392b; width:auto; max-width: 105%;">
-                    
+                <p id="pesos">
+                </p>
             </div>
             
             <div id="result"style="color:#c0392b; width:auto; max-width: 105%;">
