@@ -32,22 +32,44 @@
         <h3 class="text-muted">Project Huffman!</h3>
       </div>
 
-      <div class="jumbotron">
-        <h1>Algoritmo de compresión</h1>
-        <p class="lead">El algoritmo de Huffman es usado para la compresión de textos. Se basa en la frecuencia en que aparece un carácter en un texto.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Saber más</a></p>
-      </div>
+    
 
       <div class="row marketing">
         <div class="col-lg-8">
-          <h4>Código Fuente</h4>
-          <p>El código fuente con el que se ha realizado esta página, incluyendo el código en javascript del algoritmo de Huffman están en <a href="https://github.com/carlosgj94/huffmantry">mi github.</a></p>
+          <h2>Teoría</h2>
+        <h4>1. La frecuencia</h4>
+          <p>El análisis de frecuencias está basado en las letras de un texto teniendo distintas 
+frecuencias entre ellas, es decir, cada una aparece un número de veces determinado. 
+Cada lenguaje cuenta con una distribución característica de las letras.</p>
           <br>
-          <h4>¿Cómo surgió esta iniciativa?</h4>
-          <p>Tubimos la idea de realizar un proyecto sobre Huffman, cuando el departamento de matemáticas empezó un concurso. Al principio no nos terminaba la idea (la criptografía llama mucho), pero poco a poco descubrimos lo divertido que podía hacerse este proyecto.</p>
+          <h4>2. El algoritmo</h4>
+          <p>La codificación Huffman usa un método específico para elegir la representación de cada 
+símbolo, que da lugar a un código prefijo que representa los caracteres más comunes 
+con las cadenas de bits más cortas. Para ello, primero se crea un árbol binario en el que 
+se etiquetan los nodos con los caracteres junto con sus frecuencias, donde cabe destacar 
+la distinción entre nodos hoja, que vertebran el árbol y nodos hijo que aparecen cuando, 
+de forma consecutiva al primer paso, se une cada pareja de nodos que menos frecuencia 
+sumen, siendo el nuevo nodo hijo intermedio etiquetado con dicha suma. En otras 
+palabras, los primeros nodos se corresponden con las uniones del árbol en general y los 
+segundos se identifican como pequeñas ramas que desembocan en un peso. Finalmente, 
+se procede a realizar la misma acción hasta que no queden nodos hijos por unir a ningún 
+nodo superior: se ha formado el árbol binario.</p>
           <br>
-          <h4>Sobre nosotros</h4>
-          <p>Somos dos estudiantes de Ing. del Software en la UPM. Nos gusta pensar en ideas que puedan servir a los demás y crear proyectos de cualquier tipo.</p>
+          <h4>3. El Árbol</h4>
+          <p>El árbol ya se ha construido siguiendo el algoritmo y dando lugar a un peso máximo que 
+es el que indicará cuánto pesa nuestro texto ya comprimido. Una vez ya esté formado 
+nuestro árbol solo debemos asignar, por convenio, el bit “0” a las ramas de la izquierda 
+y el “1” a las de la derecha.</p>
+            <img src="images/HuffmanCoding_701.gif"/>
+            
+        <h4>4. La compresión</h4>
+            <p>En este último paso del proceso, lo que haremos es seguir el árbol que hemos generado 
+y a partir de él obtener la codificación de cada letra, es decir, su cadena de bits 
+correspondiente. Por último, juntaremos dichos códigos en orden para formar el párrafo 
+deseado.</p>
+            
+        <h4>Conclusiones:</h4>
+            <p>Este tipo de compresión, al usarse en un modo práctico, debe saberse el idioma al que pertenece, puesto que sino no puede realizarse. Los compresores más comunes como el famoso .zip, incorporan esta compresión acompañada de un herramienta para saber de que idioma se trata. De esta forma es capaz de comprimir mucho mejor un texto. Para completar esta teoría muy básica, os enlazo al documento de word que realizamos para el concurso de aplicamates de la UPM: <a href="https://drive.google.com/file/d/0BxpoxW8AtleHaHQ0T1dteENnSmI2UTVLYWpGT2xGd3piQVZn/edit?usp=sharing">Huffman Word</a> </p>
         </div>
 
         
