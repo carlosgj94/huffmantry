@@ -32,7 +32,7 @@ function dibujarNodo(posX, posY, letra) {
     ctx2.font = "bold 20px sans-serif";
     ctx2.fillText(letra, posX - 10, posY + 5);
 }
-function dibujarLinea(posXI, posYI, posXF, posYF){
+function dibujarLinea(posXI, posYI, posXF, posYF, num){
     var c = document.getElementById("tutorial");
     var lienzo = c.getContext("2d");
     lienzo.strokeStyle = "#874F37";
@@ -40,6 +40,11 @@ function dibujarLinea(posXI, posYI, posXF, posYF){
     lienzo.beginPath();
     lienzo.moveTo(posXI,posYI);
     lienzo.lineTo(posXF,posYF);
+    //Dibujar letra
+    var ctx2 = c.getContext("2d");
+    ctx2.fillStyle = "rgba(142, 68, 173,0.7)";
+    ctx2.font = "bold 12px sans-serif";
+    ctx2.fillText(num, (posXI+posXF)/2, (posYI+posYF)/2);
     //Trazar linea
     lienzo.stroke();
 }
@@ -49,11 +54,11 @@ function recorrer(arbol, posX, posY, veces){
         veces++;
        var existe = recorrer( arbol.izq, posX-(210/veces), posY+100, veces);
         if (existe != false){
-            dibujarLinea(posX, posY, posX-(210/veces), posY+100);   
+            dibujarLinea(posX, posY, posX-(210/veces), posY+100, 0);   
         }
         recorrer( arbol.der, posX+(210/veces), posY+100, veces);
         if (existe != false){
-            dibujarLinea(posX, posY, posX+(210/veces), posY+100);   
+            dibujarLinea(posX, posY, posX+(210/veces), posY+100, 1);   
         }
         return true;
     }
