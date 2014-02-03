@@ -1,6 +1,6 @@
 function crearArbol() {
     //Creamos el arbol
-    var posX = 450;
+    var posX = 500;
     var posY = 50;
     
     var parrafo = $("#texto").val();
