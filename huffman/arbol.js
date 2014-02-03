@@ -44,7 +44,7 @@ function dibujarLinea(posXI, posYI, posXF, posYF, num){
     var ctx2 = c.getContext("2d");
     ctx2.fillStyle = "rgba(142, 68, 173,0.7)";
     ctx2.font = "bold 12px sans-serif";
-    ctx2.fillText(num, (posXI+posXF)/2, (posYI+posYF)/2);
+    ctx2.fillText(num, ((posXI+posXF)/2)-3, ((posYI+posYF)/2)-15);
     //Trazar linea
     lienzo.stroke();
 }
