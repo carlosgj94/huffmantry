@@ -1,6 +1,7 @@
 function crearArbol() {
+    document.getElementById('canvas').innerHTML = '<canvas style="width:100%; height:100%;  border: 1px solid #27ae60;" id="tutorial" width="1100%" height="800%">Tu navegador no soporta canvas. Actualizalo.</canvas>';
     var c = document.getElementById("tutorial");
-    var ctx = c.getContext("2d");
+    var ctx = c.getContext("2d"); 
     ctx.clearRect(0, 0, c.width, c.height);
     ctx.stroke();
     //Creamos el arbol

@@ -21,6 +21,7 @@
     <![endif]-->
     <script type="text/javascript">
         function compresionTexto(){
+            document.getElementById('canvas').innerHTML = '';
           var parrafo = $("#texto").val();
           var buscado = busqueda(parrafo);
             var peso= imprimirPesos(buscado);
@@ -48,75 +49,79 @@
 <body>
 
 
-        <div class="container">
-            <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li>
-                        <a href="home.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="teoria.html">Teoría</a>
-                    </li>
-                    <li class="active">
-                        <a href="ejemplo.html">Ejemplo</a>
-                    </li>
-                </ul>
-                <h3 class="text-muted">Project Huffman!</h3>
-            </div>
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li>
+                    <a href="home.html">Home</a>
+                </li>
+                <li>
+                    <a href="teoria.html">Teoría</a>
+                </li>
+                <li class="active">
+                    <a href="ejemplo.html">Ejemplo</a>
+                </li>
+            </ul>
+            <h3 class="text-muted">Project Huffman!</h3>
+        </div>
 
-            <div class="jumbotron">
-                <h1>Ejemplo de Huffman</h1>
-                <p class="lead">Hemos realizado con javascript el código del algoritmo de Huffman, puedes probarlo en el campo de texto de abajo. Puedes usarlo, si quieres, para comprobar si has hecho bien un ejercicio, o si quieres, por simple curiosidad.</p>
-                <p>
-                Advierto que, al ejecutarse en el navegador, la memomria del programa está muy limitada, por lo que no debeis poner textos excesivamente largo. Para textos largos, descargar el javascript de <a href="https://github.com/carlosgj94/huffmantry/blob/master/huffman/huffman.js">huffman.js</a> y ejecutar con node.js.
-                </p>
-            </div>
+        <div class="jumbotron">
+            <h1>Ejemplo de Huffman</h1>
+            <p class="lead">Hemos realizado con javascript el código del algoritmo de Huffman, puedes probarlo en el campo de texto de abajo. Puedes usarlo, si quieres, para comprobar si has hecho bien un ejercicio, o si quieres, por simple curiosidad.</p>
+            <p>
+                Advierto que, al ejecutarse en el navegador, la memomria del programa está muy limitada, por lo que no debeis poner textos excesivamente largo. Para textos largos, descargar el javascript de
+                <a href="https://github.com/carlosgj94/huffmantry/blob/master/huffman/huffman.js">huffman.js</a>y ejecutar con node.js.
+            </p>
+        </div>
 
-            <div id="compresion">
-
-            </div>
-
-            <div class="row marketing" style="margin-top: 90px;">
-                <div class="col-lg-8">
-                    Introduzca la frase que quiera codificar:(no muy larga si tu ordenador tiene pocos recursos)
-                    <br>
-                    <textarea name="texto" class="form-control" id="texto"></textarea>
-                    <br>
-                    <br>
-                    <button class="btn btn-lg btn-primary" onclick="compresionTexto()">Codificar</button>
-                    <button class="btn btn-lg btn-primary" onclick="crearArbol()">Crear árbol</button>
-                </div>
-            </div>
-            <br>
-            <br>
-            <canvas id="tutorial" width="1000%" height="800%" style="border: 1px solid #27ae60;">
-         Tu navegador no soporta canvas. Actualizalo
-      </canvas>
-            <br>
-            <br>
-            <div id="weight"style="color:#c0392b; width:auto; max-width: 105%;">
-                <p id="pesos">
-                </p>
-            </div>
-            
-            <div id="result"style="color:#c0392b; width:auto; max-width: 105%;">
-                    
-            </div>
-            <br>
-            <br>
-
-
-            <div class="footer">
-                <p>Trabajo realizado por Carlos González Juárez y Borja Irigoyen Peña para la Escuela Universitaria de Informática de la UPM. El proyecto ha sido presentado a el concurso Aplicamates del departamento de matemáticas Giemátic.</p>
-            </div>
+        <div id="compresion">
 
         </div>
 
-        <!-- Bootstrap core JavaScript
+        <div class="row marketing" style="margin-top: 90px;">
+            <div class="col-lg-8">
+                Introduzca la frase que quiera codificar:(no muy larga si tu ordenador tiene pocos recursos)
+                <br>
+                <textarea name="texto" class="form-control" id="texto"></textarea>
+                <br>
+                <br>
+                <button class="btn btn-lg btn-primary" onclick="compresionTexto()">Codificar</button>
+                <button class="btn btn-lg btn-primary" onclick="crearArbol()">Crear árbol</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        </div>
+        <div id="canvas">
+
+        </div>
+    <div class="container">
+        <br>
+        <br>
+        <div id="weight" style="color:#c0392b; width:auto; max-width: 105%;">
+            <p id="pesos">
+            </p>
+        </div>
+
+        <div id="result" style="color:#c0392b; width:auto; max-width: 105%;">
+
+        </div>
+        <br>
+        <br>
+
+
+        <div class="footer">
+            <p>Trabajo realizado por Carlos González Juárez y Borja Irigoyen Peña para la Escuela Universitaria de Informática de la UPM. El proyecto ha sido presentado a el concurso Aplicamates del departamento de matemáticas Giemátic.</p>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
     ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-            <script type="text/javascript" src="huffman/arbol.js"></script>
-        <script type="text/javascript" src="huffman/huffman.js"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="huffman/arbol.js"></script>
+    <script type="text/javascript" src="huffman/huffman.js"></script>
 
 </body>
+
 </html>
