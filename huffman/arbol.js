@@ -5,7 +5,7 @@ function crearArbol() {
     ctx.clearRect(0, 0, c.width, c.height);
     ctx.stroke();
     //Creamos el arbol
-    var posX = 500;
+    var posX = 550;
     var posY = 50;
     
     var parrafo = $("#texto").val();
@@ -15,13 +15,13 @@ function crearArbol() {
     var arbol = crear_arbol(nodos_creados);
     letra= (arbol[0].carac);
     //dibujarNodo(posX, posY, letra);
-    recorrer(arbol[0], posX, posY, 0,5);
+    recorrer(arbol[0], posX, posY, 0,7);
 }
 
 function dibujarNodo(posX, posY, letra) {
     var c = document.getElementById("tutorial");
     var cxt = c.getContext("2d");
-    cxt.fillStyle = "#1abc9c";
+    cxt.fillStyle = "rgba(26, 188, 156,0.5)";
     cxt.beginPath();
     cxt.arc(posX, posY, 20, 0, Math.PI * 2, true);
     cxt.closePath();
