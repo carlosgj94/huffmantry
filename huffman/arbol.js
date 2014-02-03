@@ -1,4 +1,8 @@
 function crearArbol() {
+    var c = document.getElementById("tutorial");
+    var ctx = c.getContext("2d");
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.stroke();
     //Creamos el arbol
     var posX = 500;
     var posY = 50;
