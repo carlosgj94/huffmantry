@@ -23,6 +23,13 @@ function background() {
   }
 
 function personaHuffman(){
-    
+     var c = document.getElementById('tutorial')
+    var ctx= c.getContext('2d');
+    var img = new Image();
+    img.src = 'images/huffman.png';
+    img.onload = function(){
+      ctx.drawImage(img, 0, 0, c.width, c.height);
+      ctx.stroke();
+    }
     
 }
