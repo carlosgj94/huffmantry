@@ -24,21 +24,22 @@
             document.getElementById('canvas').innerHTML = '';
           var parrafo = $("#texto").val();
           var buscado = busqueda(parrafo);
-            var peso= imprimirPesos(buscado);
-          document.getElementById('weight').innerHTML = '<h5>Los pesos del texto son: </h5>'+peso+'<br>';
           var nodos_creados = crear_nodos(buscado);
           var arbol = crear_arbol(nodos_creados);
           var codificado = codificar(arbol, parrafo);
+          var pesototal = arbol[0].peso;
+            var peso= imprimirPesos(buscado, pesototal);
+          document.getElementById('weight').innerHTML = '<h5>Los pesos del texto son: </h5>'+peso+'<br>';
           document.getElementById('result').innerHTML = '<h5>El resultado es: </h5><br><textarea class="form-control">'+codificado+'</textarea>';
         }
         
-        function imprimirPesos(pesos){
+        function imprimirPesos(pesos, pesototal){
             var result= '';
             for (var i=0; i<pesos.length; i++){
                 if (pesos[i][0] == ' ')
-                    result= result+"' ' - "+pesos[i][1]+'<br>';
+                    result= result+"' ' - "+(pesos[i][1]/pesototal).toFixed(3)+'<br>';
                 else
-                    result= result+pesos[i][0]+" - "+pesos[i][1]+'<br>';
+                    result= result+pesos[i][0]+" - "+(pesos[i][1]/pesototal).toFixed(3)+'<br>';
             }
             return result;
             

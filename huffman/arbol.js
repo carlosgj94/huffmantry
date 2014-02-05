@@ -14,8 +14,8 @@ function crearArbol() {
     var nodos_creados = crear_nodos(buscado);
     var arbol = crear_arbol(nodos_creados);
     letra= (arbol[0].carac);
-    //dibujarNodo(posX, posY, letra);
-    recorrer(arbol[0], posX, posY, 0,7);
+    var pesoMaximo =  arbol[0].peso;
+    recorrer(arbol[0], posX, posY, 0, pesoMaximo);
 }
 
 function dibujarNodo(posX, posY, letra) {
@@ -23,14 +23,41 @@ function dibujarNodo(posX, posY, letra) {
     var cxt = c.getContext("2d");
     cxt.fillStyle = "rgba(26, 188, 156,0.5)";
     cxt.beginPath();
-    cxt.arc(posX, posY, 20, 0, Math.PI * 2, true);
+    cxt.arc(posX, posY, 22, 0, Math.PI*2, true);
     cxt.closePath();
     cxt.fill();
 
     var ctx2 = c.getContext("2d");
-    cxt.fillStyle = "#333";
+    cxt.fillStyle = "rgba(44, 62, 80,1.0)";
+    ctx2.font = "bold 19px sans-serif";
+        ctx2.fillText(letra.toFixed(2), posX - 19, posY + 5);
+    
+}
+function dibujarNodoFinal(posX, posY, peso, letra) {
+    var c = document.getElementById("tutorial");
+    var cxt = c.getContext("2d");
+    cxt.fillStyle = "rgba(26, 188, 156,0.5)";
+    cxt.beginPath();
+    cxt.arc(posX, posY, 20, 0, Math.PI*2, true);
+    cxt.closePath();
+    cxt.fill();
+
+    var ctx2 = c.getContext("2d");
+    cxt.fillStyle = "rgba(44, 62, 80,1.0)";
+    ctx2.font = "bold 19px sans-serif";
+    ctx2.fillText(peso.toFixed(2), posX - 19, posY + 5);
+    
+     cxt.fillStyle = "rgba(52, 152, 219,0.5)";
+    cxt.beginPath();
+    cxt.arc(posX, posY+28, 22, 0, Math.PI*2, true);
+    cxt.closePath();
+    cxt.fill();
+    
+    var ctx2 = c.getContext("2d");
+    cxt.fillStyle = "rgba(44, 62, 80,1.0)";
     ctx2.font = "bold 20px sans-serif";
-    ctx2.fillText(letra, posX - 10, posY + 5);
+    ctx2.fillText(letra, posX -6, posY+33);
+    
 }
 function dibujarLinea(posXI, posYI, posXF, posYF, num){
     var c = document.getElementById("tutorial");
@@ -48,15 +75,19 @@ function dibujarLinea(posXI, posYI, posXF, posYF, num){
     //Trazar linea
     lienzo.stroke();
 }
-function recorrer(arbol, posX, posY, veces){
+function recorrer(arbol, posX, posY, veces, pesoMaximo){
     if( arbol != null){
-        dibujarNodo(posX, posY, arbol.carac );
+        if(arbol.carac.length >1){
+            dibujarNodo(posX, posY, arbol.peso/pesoMaximo);
+        }
+        else
+            dibujarNodoFinal(posX, posY, arbol.peso/pesoMaximo, arbol.carac);
         veces++;
-       var existe = recorrer( arbol.izq, posX-(210/veces), posY+100, veces);
+       var existe = recorrer( arbol.izq, posX-(210/veces), posY+100, veces, pesoMaximo);
         if (existe != false){
             dibujarLinea(posX, posY, posX-(210/veces), posY+100, 0);   
         }
-        recorrer( arbol.der, posX+(210/veces), posY+100, veces);
+        recorrer( arbol.der, posX+(210/veces), posY+100, veces, pesoMaximo);
         if (existe != false){
             dibujarLinea(posX, posY, posX+(210/veces), posY+100, 1);   
         }
@@ -64,43 +95,3 @@ function recorrer(arbol, posX, posY, veces){
     }
     return false;
 }
-/*
-      //Segundo
-      posX=posX+100;
-      cxt.fillStyle ="#1abc9c";
-        cxt.beginPath();
-        cxt.arc(posX,posY,30,0,Math.PI*2,true);
-      	cxt.closePath();
-        cxt.fill();
-      
-      var ctx2 =c.getContext("2d");
-      cxt.fillStyle ="#333";
-      ctx2.font = "bold 20px sans-serif";
-      	ctx2.fillText("B",posX-10,posY+5);
-
-      //Tercero
-      posX=posX+100;
-       cxt.fillStyle ="#1abc9c";
-        cxt.beginPath();
-        cxt.arc(posX,posY,30,0,Math.PI*2,true);
-      	cxt.closePath();
-        cxt.fill();
-      
-      var ctx2 =c.getContext("2d");
-      cxt.fillStyle ="#333";
-      ctx2.font = "bold 20px sans-serif";
-      	ctx2.fillText("C",posX-10,posY+5);
-      
-      //Avance en sentido Y
-       posY=posY+100;
-       posX=posX-50;
-       cxt.fillStyle ="#1abc9c";
-        cxt.beginPath();
-        cxt.arc(posX,posY,30,0,Math.PI*2,true);
-      	cxt.closePath();
-        cxt.fill();
-      
-      var ctx2 =c.getContext("2d");
-      cxt.fillStyle ="#333";
-      ctx2.font = "bold 20px sans-serif";
-      	ctx2.fillText("BC",posX-10,posY+5);*/
