@@ -51,16 +51,13 @@ function crear_hoja(nodIzq, nodDer) {//Esta funcion sera llamada por crear_arbol
 }
 
 function crear_arbol(nodos) {
-	if (nodos.length == 1)
-		return nodos;
-	else{
-		nodos.push(crear_hoja(nodos.pop(), nodos.pop() ) );
+    while (nodos.length >1){
+        nodos.push(crear_hoja(nodos.pop(), nodos.pop() ) );
 		nodos.sort(function ( a, b){
 			return b.peso-a.peso;
 		});
-		crear_arbol(nodos);
-	}
-	return nodos;
+    }
+    return nodos;
 }
 
 function codificar(arbol, texto){
